@@ -26,6 +26,10 @@ CommonJS 模块是为 Node.js 打包 JavaScript 代码的原始方式, 在 Node.
 
 性从 flase -> true。
 
+-   运行条件
+
+当文件扩展名为 .cjs ，或者 package.json 中 type 字段的值为 commonjs，或者命令行参数 --input-type=commonjs 或者 --experimental-default-type=commonjs，nodejs 将 javascript 解释为 CommonJs.
+
 -   模块封装器
 
 ```javascript

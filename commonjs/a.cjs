@@ -4,4 +4,5 @@
 
 module.exports = {
     a: 1,
+    type: 'CommonJS',
 }

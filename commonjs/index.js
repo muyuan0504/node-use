@@ -13,11 +13,24 @@
 exports.b = 1
 // console.log(arguments[0]) // { b: 1 }
 
-const requireExec = arguments[1] // 手动取出 require 函数执行
-const moduleA = requireExec('./a')
+// const requireExec = arguments[1] // 手动取出 require 函数执行
+// const moduleA = requireExec('./a')
 // console.log('requireExec load moduleA: ', moduleA)
 
 /** 引入自己实现的require模块封装器 */
-const requireImplement = require('./require')
-const _moduleA = requireImplement('./a')
-console.log('requireImplement load moduleA: ', _moduleA)
+// const requireImplement = require('./require')
+// const _moduleA = requireImplement('./a')
+// console.log('requireImplement load moduleA: ', _moduleA)
+
+/** import() 表达式：支持加载 es6-module */
+async function loadESmodule() {
+    // const moduleA = await import('../esma-module/a.mjs')
+    const moduleA = await import('./a.cjs')
+    console.log('load moduleA: ', moduleA.default)
+}
+
+loadESmodule()
+
+import('../esma-module/a.mjs').then((res) => {
+    console.log('加载成功', res)
+})
