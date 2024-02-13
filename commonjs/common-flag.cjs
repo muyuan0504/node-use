@@ -5,5 +5,5 @@
  * 3. 命令行参数 --input-type=commonjs 或者 --experimental-default-type=commonjs
  */
 
-const moduleA = require('./a.cjs')
+const moduleA = require('./a.js')
 console.log('commonjs moduleA: ', moduleA)

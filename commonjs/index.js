@@ -1,6 +1,11 @@
-// const moduleA = require('./a.js')
+const moduleA = require('./a.js')
 
-// console.log('moduleA: ', moduleA)
+console.log('moduleA: ', moduleA)
+
+setTimeout(() => {
+    console.log('改变之后的moduleA: ', moduleA)
+    console.log('重新require moduleA', require('./a.js'))
+}, 1500)
 
 /** 加载模块接收arguments列表, arguments 是函数内置对象
  * 0. {} - 对 module.exports 的引用，其输入更短
@@ -25,7 +30,7 @@ exports.b = 1
 /** import() 表达式：支持加载 es6-module */
 async function loadESmodule() {
     // const moduleA = await import('../esma-module/a.mjs')
-    const moduleA = await import('./a.cjs')
+    const moduleA = await import('./a.js')
     console.log('load moduleA: ', moduleA.default)
 }
 
