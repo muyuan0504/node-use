@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/muyuan0504/node-use/issues"
   },
-  "homepage": "https://github.com/muyuan0504/node-use#readme"
+  "homepage": "https://github.com/muyuan0504/node-use#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
