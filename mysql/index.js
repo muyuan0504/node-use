@@ -1,27 +1,13 @@
-const mysql = require('mysql')
+const { MYSQL_INIT, MYSQL_CLOSE, sqlQuery, sqlInsert } = require('./use-mysql')
 
-const connection = mysql.createConnection({
-    host: '',
-    user: 'root',
-    password: '',
-    database: '',
-    port: '3306',
-})
+const { SQL_CREATE_TABLE, SQL_INSERT } = require('./sql')
 
-connection.connect((err) => {
-    console.log('连接异常：', err)
-})
+MYSQL_INIT()
 
-console.log('尝试连接')
+async function execSql() {
+    await sqlQuery(SQL_CREATE_TABLE)
+    await sqlInsert(SQL_INSERT, { id: null, keyword: 'init', record: '今夕何夕，见此良人' })
+    MYSQL_CLOSE()
+}
 
-const sql = 'SELECT * FROM LOVE_RECORD'
-
-connection.query(sql, function (err, result) {
-    if (err) {
-        console.log('[SELECT ERROR] - ', err.message)
-        return
-    }
-    console.log(result)
-})
-
-// connection.end()
+execSql()
