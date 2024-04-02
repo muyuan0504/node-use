@@ -2,7 +2,7 @@
 
 Node.js 有两个模块系统：CommonJS 模块和 ECMAScript 模块
 
-调用 require() 始终使用 CommonJS 模块加载器； 调用 import() 始终使用 ECMAScript 模块加载器。
+调用 require() 始终使用 CommonJS 模块加载器； 调用 import 始终使用 ECMAScript 模块加载器。
 
 ### console.log(arguments)
 
