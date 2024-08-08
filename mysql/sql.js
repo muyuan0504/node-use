@@ -7,9 +7,27 @@ CREATE TABLE IF NOT EXISTS love_record (
 )
 `
 
-const SQL_INSERT = 'INSERT INTO love_record SET ?'
+/** 生成 insert 语句
+ * const insertSQL = "INSERT INTO your_table (column1, column2, column3) VALUES (?, ?, ?)";
+ * const values = ['value1', 'value2', 'value3']; // 替换为要插入的实际值
+ * connection.query(insertSQL, values, (error, results, fields) => { }
+ */
+const GENERATE_INSERT_SQL = ({ name, data }) => {
+    const useKeys = Object.keys(data)
+    const columnKeys = useKeys.join(', ')
+    const insertSQL = `INSERT INTO ${name} (${columnKeys}) VALUES (?, ?, ?)`
+    const values = []
+    useKeys.forEach((key) => {
+        values.push(data[key])
+    })
+
+    return {
+        sql: insertSQL,
+        values,
+    }
+}
 
 module.exports = {
     SQL_CREATE_TABLE,
-    SQL_INSERT,
+    GENERATE_INSERT_SQL,
 }

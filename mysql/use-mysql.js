@@ -1,9 +1,9 @@
 const mysql = require('mysql')
 
 const connection = mysql.createConnection({
-    host: '',
+    host: '120.77.43.137',
     user: 'root',
-    password: '',
+    password: 'aiden123',
     database: 'muyuan',
     port: '3306',
 })
@@ -23,6 +23,7 @@ function MYSQL_CLOSE() {
 function sqlQuery(sql) {
     return new Promise((resolve, reject) => {
         connection.query(sql, function (err, result) {
+            console.log('querry result: ', result)
             if (err) {
                 reject('[SELECT ERROR] - ', err.message)
                 return
