@@ -9,11 +9,16 @@ const connection = mysql.createConnection({
 })
 
 function MYSQL_INIT() {
-    connection.connect((err) => {
-        if (err) {
-            console.log('mysql connection error: ', err)
+    connection.connect(
+        (err) => {
+            if (err) {
+                console.log('mysql connection error: ', err)
+            }
+        },
+        () => {
+            console.log('mysql 连接成功')
         }
-    })
+    )
 }
 
 function MYSQL_CLOSE() {

@@ -15,4 +15,4 @@ async function execSql() {
     MYSQL_CLOSE()
 }
 
-execSql()
+// execSql()
